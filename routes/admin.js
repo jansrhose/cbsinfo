@@ -7,7 +7,6 @@ const Joi = require('joi');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 
-
 // Define the validation schema using Joi
 const managerSchema = Joi.object({
   firstName: Joi.string().required(),

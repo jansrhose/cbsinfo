@@ -36,7 +36,6 @@ router.get('/login', async function(req, res, next) {
 router.post('/login', async function(req, res, next) {
   try {
     const { email, password } = req.body;
-
     const admin = await prisma.admin.findUnique({
       where: { email },
       select: { id: true, password: true },

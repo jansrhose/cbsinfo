@@ -2,117 +2,117 @@
 <html>
 <head>
   <title>Admin Dashboard</title>
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
     body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: linear-gradient(90deg, #DAA06D , #EADDCA);
-        }
-     nav {
-    background-color: #333;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    font-family: "Bruno Ace", cursive;
-}
-
-nav ul li {
-    margin-right: 20px;
-    font-family: "Bruno Ace", cursive;
-}
-
-nav ul li a {
-    color: gray;
-    text-decoration: none;
-    font-family: "Bruno Ace", cursive;
-    position: relative;
-    transition: color 0.3s, opacity 0.3s;
-}
-
-nav ul li a:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #DAA06D;
-    bottom: -5px;
-    left: 0;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #DAA06D;
-    opacity: 0.8;
-}
-
-nav ul li a:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-     h1 {
-      font-size: 36px;
-        color: #DAA06D;
-        margin-bottom: 2em;
-        padding: 1rem;
-        transform: translate(10%, 10%);
-        display: inline-block;
-        background: #EADDCA;
-        border-radius: 5rem;
-        box-shadow: 0 0 0.5rem 0.5rem rgba(234, 221, 202, 0.5);
-        font-size: 2.5rem;
-        font-family: "Bruno Ace", cursive;
-        width: fit-content; /* Added width property */
-    }
-    a{ 
+      margin: 0;
+      padding: 0;
       font-family: "Bruno Ace", cursive;
+      background-image: linear-gradient(90deg, #DAA06D , #EADDCA);
+    }
+
+    header{
+      background-color: #333;
+      font-family: "Bruno Ace", cursive;
+      justify-content: flex-start; 
+      text-align: left;
+      align-content: flex-start;
+    }
+
+    nav {
+      padding: 0 20px;
+      height: 60px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: gray;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s, opacity 0.3s;
+    }
+
+    nav ul li a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #DAA06D;
+      bottom: -5px;
+      left: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+      color: #DAA06D;
+    }
+
+    nav ul li a:hover {
+      color: #DAA06D;
+      opacity: 0.8;
+    }
+
+    nav ul li a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+      color: #DAA06D;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #DAA06D;
+      margin-bottom: 40px;
+      padding: 1rem;
+      transform: translate(10%, 10%);
+      display: inline-block;
+      background: #EADDCA;
+      border-radius: 5rem;
+      box-shadow: 0 0 0.5rem 0.5rem rgba(234, 221, 202, 0.5);
+      font-size: 2.5rem;
+      width: fit-content; /* Added width property */
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
+  <!-- NAVBAR -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
         <a class="navbar-brand" href="/admin/dashboard">Admin Dashboard</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/dashboard">Home</a>
+            <li>
+              <a href="/admin/dashboard">Home</a>
+            </li>
+            <li>
+              <a href="/admin/pets">Pet Transaction</a>
             </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/pets">Pet Transaction</a>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/logout">Logout</a>
+            <li>
+              <a href="/admin/logout">Logout</a>
             </li>
           </ul>
         </div>
-      </div>
     </nav>
   </header>
+
+  <!-- DASHBOARD TABLE -->
   <main>
     <h1>Manager List</h1>
     <div class="container">
-      
       <table class="table">
         <thead>
           <tr>
@@ -125,6 +125,7 @@ nav ul li a:hover:before {
             <th>Actions</th>
           </tr>
         </thead>
+
         <tbody>
             <% let count = 1; %>
             <% for (const manager of managers) { %>
@@ -145,15 +146,11 @@ nav ul li a:hover:before {
                     <input type="hidden" name="managerId" value="<%= manager.id %>">
                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                   </form>
-                  
                   </td>
-                  
               </tr>
               <% count++; %>
             <% } %>
-          </tbody>
-          
-          
+          </tbody>  
       </table>
       
       <div class="text-center mt-4">
@@ -161,7 +158,10 @@ nav ul li a:hover:before {
       </div>
     </div>
   </main>
+
+  <!-- OTHER VERSION OF FONT AWESOME -->
   <script src="https://use.fontawesome.com/60c6218a59.js"></script>
+  <!-- BOOTSTRAP JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 </html>

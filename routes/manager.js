@@ -42,7 +42,6 @@ router.get('/add-pet', async function(req, res, next) {
   }
 });
 
- 
 // POST add pet
 router.post('/add-pet', async function(req, res, next) {
   try {
@@ -102,8 +101,6 @@ router.post('/add-pet', async function(req, res, next) {
   }
 });
 
-
-
 // POST delete pet
 router.post('/manager/delete', async function(req, res, next) {
   const { petId } = req.body;
@@ -131,7 +128,6 @@ router.post('/manager/delete', async function(req, res, next) {
   }
 });
 
-
 // GET edit pet page
 router.get('/manager/edit-pet', async function(req, res, next) {
   const { petId } = req.query;
@@ -155,8 +151,6 @@ router.get('/manager/edit-pet', async function(req, res, next) {
   }
 });
 
-
-  
 // POST edit pet
 router.post('/manager/edit-pet', async function(req, res, next) {
   const { petId, petName, breed, age, gender, service, owner, contact, email, weight } = req.body;
@@ -196,7 +190,5 @@ router.post('/manager/edit-pet', async function(req, res, next) {
     res.status(500).send('Internal Server Error');
   }
 });
-
-  
 
 module.exports = router;
