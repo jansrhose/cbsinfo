@@ -6,38 +6,7 @@ var prisma = new PrismaClient();
 const Joi = require('joi');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
-// Mock the DOM environment
-const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
-global.document = dom.window.document;
-
-// Access the required elements and convert the code
-const passwordInput = document.querySelector(".pass-field input");
-const requirementList = document.querySelectorAll(".requirement-list li");
-const requirements = [
-  { regex: /.{8,}/, index: 0 },
-  { regex: /[0-9]/, index: 1 },
-  { regex: /[a-z]/, index: 2 },
-  { regex: /[A-Z]/, index: 3 },
-  { regex: /[^A-Za-z0-9]/, index: 4 },
-];
-
-function simulateKeyupEvent(value) {
-  requirements.forEach((item) => {
-    const isValid = item.regex.test(value);
-    const requirementItem = requirementList[item.index];
-
-    if (isValid) {
-      requirementItem.classList.add("valid");
-      requirementItem.firstElementChild.className = "fa-solid fa-check";
-    } else {
-      requirementItem.classList.remove("valid");
-      requirementItem.firstElementChild.className = "fa-solid fa-circle";
-    }
-  });
-}
 
 // Define the validation schema using Joi
 const managerSchema = Joi.object({
