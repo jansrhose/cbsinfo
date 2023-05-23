@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(90deg, #DAA06D, #EADDCA);
+    }
+
+    nav {
+      background-color: #333;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      font-family: "Bruno Ace", cursive;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+      font-family: "Bruno Ace", cursive;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Bruno Ace", cursive;
+      position: relative;
+      transition: color 0.3s, opacity 0.3s;
+    }
+
+    nav ul li a:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #DAA06D;
+      bottom: -5px;
+      left: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+      color: #DAA06D;
+      opacity: 0.8;
+    }
+
+    nav ul li a:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #DAA06D;
+      margin-bottom: 2em;
+      padding: 1rem;
+      transform: translate(10%, 10%);
+      display: inline-block;
+      background: #EADDCA;
+      border-radius: 5rem;
+      box-shadow: 0 0 0.5rem 0.5rem rgba(234, 221, 202, 0.5);
+      font-size: 2.5rem;
+      font-family: "Bruno Ace", cursive;
+      width: fit-content;
+    }
+
+    a {
+      font-family: "Bruno Ace", cursive;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/admin/dashboard">Admin Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/dashboard">Home</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/pets">Pet Transaction</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Pet List Transaction Record</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Service</th>
+            <th>Owner</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Weight</th>
+            <th>Manager ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% pets.forEach((pet) => { %>
+            <tr>
+              <td><%= pet.petName %></td>
+              <td><%= pet.breed %></td>
+              <td><%= pet.age %></td>
+              <td><%= pet.gender %></td>
+              <td><%= pet.service %></td>
+              <td><%= pet.owner %></td>
+              <td><%= pet.contact %></td>
+              <td><%= pet.email %></td>
+              <td><%= pet.weight %></td>
+              <td><%= pet.managerId %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

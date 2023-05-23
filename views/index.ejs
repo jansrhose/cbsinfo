@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(90deg, #DAA06D , #EADDCA);
+        }
+        nav {
+    background-color: #333;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: "Bruno Ace", cursive;
+}
+
+nav ul li {
+    margin-right: 20px;
+    font-family: "Bruno Ace", cursive;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Bruno Ace", cursive;
+    position: relative;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+nav ul li a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #DAA06D;
+    bottom: -5px;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #DAA06D;
+    opacity: 0.8;
+}
+
+nav ul li a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .container h1 {
+            font-size: 36px;
+            color: #DAA06D;
+            margin-bottom: 2em;
+            position:absolute;
+            left: 50%;
+            top: 50%;  
+            padding: 1rem;
+            transform: translate(-50%, -50%);
+            background: #EADDCA;
+            border-radius: 5rem;
+            box-shadow: 0 0 1rem 1rem #EADDCA;
+            font-size: 2.5rem;
+            font-family: "Bruno Ace",cursive;
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to Pet Society</h1>
+    </div>
+</body>
+</html>

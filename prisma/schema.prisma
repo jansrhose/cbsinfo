@@ -1,0 +1,45 @@
+// This is your Prisma schema file.
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id      String   @id @default(cuid()) @map("_id")
+  email String   @unique
+  password String
+}
+
+model Manager {
+  id      String   @id @default(cuid()) @map("_id")
+  firstName  String
+  middleName String?
+  lastName   String
+  contact    String
+  email      String   @unique
+  password   String
+  pets       Pet[]
+}
+
+model Pet {
+  id        String   @id @default(cuid()) @map("_id")
+  petName   String
+  breed     String
+  age       Int
+  gender    String
+  service   String
+  owner     String
+  contact   String
+  email     String
+  createdAt DateTime @default(now())
+  weight    Float?
+  manager   Manager  @relation(fields: [managerId], references: [id])
+  managerId String
+}
+
